@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "scholarMcp": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "scholar_mcp.server"],
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}
