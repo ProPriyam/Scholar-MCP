@@ -27,7 +27,6 @@ uvx --from git+https://github.com/ProPriyam/Scholar-MCP scholar-mcp
 
 All configs use `python -m scholar_mcp.server` to start the server. This avoids PATH issues that `pip install` can cause on Windows.
 
-Example configs for all clients are in the [`examples/`](examples/) folder.
 
 ### VS Code
 
@@ -35,16 +34,16 @@ Add to `.vscode/mcp.json`:
 
 ```json
 {
-  "servers": {
-    "scholarMcp": {
-      "type": "stdio",
-      "command": "python",
-      "args": ["-m", "scholar_mcp.server"],
-      "env": {
-        "PYTHONUNBUFFERED": "1"
-      }
-    }
-  }
+	"servers": {
+		"scholarMcp": {
+			"type": "stdio",
+			"command": "python",
+			"args": ["-m", "scholar_mcp.server"],
+			"env": {
+				"PYTHONUNBUFFERED": "1"
+			}
+		}
+	}
 }
 ```
 
@@ -54,17 +53,17 @@ Add to `opencode.json` in your project root:
 
 ```json
 {
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "scholar_mcp": {
-      "type": "local",
-      "command": ["python", "-m", "scholar_mcp.server"],
-      "enabled": true,
-      "environment": {
-        "PYTHONUNBUFFERED": "1"
-      }
-    }
-  }
+	"$schema": "https://opencode.ai/config.json",
+	"mcp": {
+		"scholar_mcp": {
+			"type": "local",
+			"command": ["python", "-m", "scholar_mcp.server"],
+			"enabled": true,
+			"environment": {
+				"PYTHONUNBUFFERED": "1"
+			}
+		}
+	}
 }
 ```
 
@@ -74,27 +73,20 @@ Add to `opencode.json` in your project root:
 claude mcp add --transport stdio --scope project scholar-mcp -- python -m scholar_mcp.server
 ```
 
-Or use `examples/claude.mcp.json` as a template.
-
 ## Configuration
 
 All optional. Set as environment variables.
 
-| Variable | Default | Description |
-|---|---|---|
-| `SCHOLAR_USER_AGENT` | Chrome-like UA | User-Agent header for requests |
-| `SCHOLAR_TIMEOUT` | `20` | HTTP timeout in seconds |
-| `SCHOLAR_MIN_DELAY` | `1.2` | Minimum delay between requests (seconds) |
-| `SCHOLAR_MAX_RETRIES` | `2` | Retry attempts on failure |
-| `SCHOLAR_RETRY_BACKOFF` | `1.5` | Backoff multiplier between retries |
-| `SCHOLAR_PROXY_URL` | none | HTTP/HTTPS proxy URL |
-| `SCHOLAR_MAX_PAGE_SIZE` | `20` | Max results per request |
+| Variable                | Default        | Description                              |
+| ----------------------- | -------------- | ---------------------------------------- |
+| `SCHOLAR_USER_AGENT`    | Chrome-like UA | User-Agent header for requests           |
+| `SCHOLAR_TIMEOUT`       | `20`           | HTTP timeout in seconds                  |
+| `SCHOLAR_MIN_DELAY`     | `1.2`          | Minimum delay between requests (seconds) |
+| `SCHOLAR_MAX_RETRIES`   | `2`            | Retry attempts on failure                |
+| `SCHOLAR_RETRY_BACKOFF` | `1.5`          | Backoff multiplier between retries       |
+| `SCHOLAR_PROXY_URL`     | none           | HTTP/HTTPS proxy URL                     |
+| `SCHOLAR_MAX_PAGE_SIZE` | `20`           | Max results per request                  |
 
 ## Notes
 
 - This scrapes Google Scholar HTML. It can break if Google changes their markup or blocks requests.
-- Keep request rates low. Be responsible.
-
-## License
-
-[MIT](LICENSE)
