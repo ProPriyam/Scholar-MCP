@@ -12,7 +12,7 @@ Local MCP server that searches Google Scholar. Scrapes results with `requests` +
 Clone and install:
 
 ```bash
-git clone https://github.com/propriyam/Scholar-MCP.git
+git clone https://github.com/ProPriyam/Scholar-MCP.git
 cd Scholar-MCP
 pip install -e .
 ```
@@ -20,7 +20,7 @@ pip install -e .
 Or run directly without cloning (needs [uv](https://docs.astral.sh/uv/)):
 
 ```bash
-uvx --from git+https://github.com/propriyam/Scholar-MCP scholar-mcp
+uvx --from git+https://github.com/ProPriyam/Scholar-MCP scholar-mcp
 ```
 
 ## Client setup
